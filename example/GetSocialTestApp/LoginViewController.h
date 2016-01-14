@@ -14,6 +14,8 @@
 
 
 @property(strong,nonatomic)LoginModel *loginModel;
+@property(weak,nonatomic)NSString * first_name;
+@property(weak,nonatomic)NSString * last_name;
 - (IBAction)ConnectPressed:(id)sender;
 
 @end

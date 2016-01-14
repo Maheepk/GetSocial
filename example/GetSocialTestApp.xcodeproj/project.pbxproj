@@ -60,6 +60,8 @@
 		99F772E61BBAA96A00A4CD69 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 99F772E51BBAA96A00A4CD69 /* LICENSE */; };
 		99FE1A801BB2A82100EF576A /* ConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99FE1A7D1BB2A82100EF576A /* ConsoleViewController.m */; };
 		E2308D971C464B0600ECD0A1 /* PaymentOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2308D961C464B0600ECD0A1 /* PaymentOptionsViewController.m */; };
+		E25A52EE1C47DF8300FB88DD /* CreditCardDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E25A52ED1C47DF8300FB88DD /* CreditCardDetails.m */; };
+		E25A52F61C47F77E00FB88DD /* GSNetworkManager+CreditCardDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E25A52F51C47F77E00FB88DD /* GSNetworkManager+CreditCardDetails.m */; };
 		E26246EF1C45191500FCA747 /* launchInmage.png in Resources */ = {isa = PBXBuildFile; fileRef = E26246EE1C45191500FCA747 /* launchInmage.png */; };
 		E26246F11C45191E00FCA747 /* apple-touch-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E26246F01C45191E00FCA747 /* apple-touch-icon.png */; };
 		E26246F41C451A1A00FCA747 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E26246F31C451A1A00FCA747 /* LoginViewController.m */; };
@@ -160,6 +162,10 @@
 		A62C289467F0DE2EE39ADD79 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2308D951C464B0600ECD0A1 /* PaymentOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentOptionsViewController.h; sourceTree = "<group>"; };
 		E2308D961C464B0600ECD0A1 /* PaymentOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentOptionsViewController.m; sourceTree = "<group>"; };
+		E25A52EC1C47DF8300FB88DD /* CreditCardDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditCardDetails.h; sourceTree = "<group>"; };
+		E25A52ED1C47DF8300FB88DD /* CreditCardDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardDetails.m; sourceTree = "<group>"; };
+		E25A52F41C47F77E00FB88DD /* GSNetworkManager+CreditCardDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GSNetworkManager+CreditCardDetails.h"; sourceTree = "<group>"; };
+		E25A52F51C47F77E00FB88DD /* GSNetworkManager+CreditCardDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GSNetworkManager+CreditCardDetails.m"; sourceTree = "<group>"; };
 		E26246EE1C45191500FCA747 /* launchInmage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchInmage.png; sourceTree = "<group>"; };
 		E26246F01C45191E00FCA747 /* apple-touch-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apple-touch-icon.png"; sourceTree = "<group>"; };
 		E26246F21C451A1A00FCA747 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -256,6 +262,8 @@
 				E26247391C45541200FCA747 /* GSNetworkManager.m */,
 				E262473A1C45541200FCA747 /* GSNetworkManager+customer.h */,
 				E262473B1C45541200FCA747 /* GSNetworkManager+customer.m */,
+				E25A52F41C47F77E00FB88DD /* GSNetworkManager+CreditCardDetails.h */,
+				E25A52F51C47F77E00FB88DD /* GSNetworkManager+CreditCardDetails.m */,
 				E26246F51C451A9000FCA747 /* thumb_start.png */,
 				E26246F01C45191E00FCA747 /* apple-touch-icon.png */,
 				E26246EE1C45191500FCA747 /* launchInmage.png */,
@@ -424,22 +432,7 @@
 				995AC1E81BB15C95006424DF /* MenuItem.m */,
 				E262472A1C45402400FCA747 /* PayWithCard */,
 				E26246FA1C451CC100FCA747 /* Login View */,
-				991347B11AF240740044C2AD /* CustomSmartInviteViewController.h */,
-				991347B21AF240740044C2AD /* CustomSmartInviteViewController.m */,
-				995AC1D21BB06955006424DF /* MainViewController.h */,
-				995AC1D31BB06955006424DF /* MainViewController.m */,
-				995AC1DD1BB15218006424DF /* MainNavigationController.h */,
-				995AC1DE1BB15218006424DF /* MainNavigationController.m */,
-				995AC1E21BB1568E006424DF /* MenuTableViewController.h */,
-				995AC1E31BB1568E006424DF /* MenuTableViewController.m */,
-				99B68F131BB18FC500E1F252 /* UserIdentityViewController.h */,
-				99B68F141BB18FC500E1F252 /* UserIdentityViewController.m */,
-				99FE1A7C1BB2A82100EF576A /* ConsoleViewController.h */,
-				99FE1A7D1BB2A82100EF576A /* ConsoleViewController.m */,
-				992923981BB2EEAD0010D481 /* UserViewController.h */,
-				992923991BB2EEAD0010D481 /* UserViewController.m */,
-				992923A11BB411A00010D481 /* MenuTableViewCell.h */,
-				992923A21BB411A00010D481 /* MenuTableViewCell.m */,
+				E25A52F31C47E92D00FB88DD /* Other View */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -460,6 +453,29 @@
 				E2308D961C464B0600ECD0A1 /* PaymentOptionsViewController.m */,
 			);
 			name = "Payment Options";
+			sourceTree = "<group>";
+		};
+		E25A52F31C47E92D00FB88DD /* Other View */ = {
+			isa = PBXGroup;
+			children = (
+				991347B11AF240740044C2AD /* CustomSmartInviteViewController.h */,
+				991347B21AF240740044C2AD /* CustomSmartInviteViewController.m */,
+				995AC1D21BB06955006424DF /* MainViewController.h */,
+				995AC1D31BB06955006424DF /* MainViewController.m */,
+				995AC1DD1BB15218006424DF /* MainNavigationController.h */,
+				995AC1DE1BB15218006424DF /* MainNavigationController.m */,
+				995AC1E21BB1568E006424DF /* MenuTableViewController.h */,
+				995AC1E31BB1568E006424DF /* MenuTableViewController.m */,
+				99B68F131BB18FC500E1F252 /* UserIdentityViewController.h */,
+				99B68F141BB18FC500E1F252 /* UserIdentityViewController.m */,
+				99FE1A7C1BB2A82100EF576A /* ConsoleViewController.h */,
+				99FE1A7D1BB2A82100EF576A /* ConsoleViewController.m */,
+				992923981BB2EEAD0010D481 /* UserViewController.h */,
+				992923991BB2EEAD0010D481 /* UserViewController.m */,
+				992923A11BB411A00010D481 /* MenuTableViewCell.h */,
+				992923A21BB411A00010D481 /* MenuTableViewCell.m */,
+			);
+			name = "Other View";
 			sourceTree = "<group>";
 		};
 		E26246FA1C451CC100FCA747 /* Login View */ = {
@@ -498,6 +514,8 @@
 			isa = PBXGroup;
 			children = (
 				E262473F1C45546100FCA747 /* Address.h */,
+				E25A52EC1C47DF8300FB88DD /* CreditCardDetails.h */,
+				E25A52ED1C47DF8300FB88DD /* CreditCardDetails.m */,
 				E26247401C45546100FCA747 /* Address.m */,
 				E26247411C45546100FCA747 /* Customer.h */,
 				E26247421C45546100FCA747 /* Customer.m */,
@@ -683,8 +701,10 @@
 				995AC1EB1BB15C95006424DF /* MenuItem.m in Sources */,
 				E26246FD1C451CDF00FCA747 /* PayWithCardViewController.m in Sources */,
 				E26247431C45546100FCA747 /* Address.m in Sources */,
+				E25A52F61C47F77E00FB88DD /* GSNetworkManager+CreditCardDetails.m in Sources */,
 				990BC5B01AF24E07003A0B96 /* UIBAlertView.m in Sources */,
 				99ABE3C41BCE7E8A00296F50 /* UserIdentityUtils.m in Sources */,
+				E25A52EE1C47DF8300FB88DD /* CreditCardDetails.m in Sources */,
 				995AC1E11BB15218006424DF /* MainNavigationController.m in Sources */,
 				E2308D971C464B0600ECD0A1 /* PaymentOptionsViewController.m in Sources */,
 				E262473C1C45541200FCA747 /* GSNetworkManager.m in Sources */,

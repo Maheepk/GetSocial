@@ -7,6 +7,11 @@
 //
 
 #import "PayWithCardViewController.h"
+#import "GSNetworkManager.h"
+#import "CreditCardDetails.h"
+#import "GSNetworkManager.h"
+#import "GSNetworkManager+customer.h"
+#import "GSNetworkManager+CreditCardDetails.h"
 
 @interface PayWithCardViewController ()
 
@@ -21,12 +26,15 @@
     [self.tfCardNumber becomeFirstResponder];
     
     [self getUserDetailsForPayment];
-    [self GetIDForThePaymentInfoWithObjectAndCallForPaymentWithDict:nil];
+   
     self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor] ;
     self.navigationController.navigationBar.barTintColor = [UIColor blueColor] ;
 
     self.navigationController.navigationBar.translucent = NO;
     [[UINavigationBar appearance] setAlpha:0.7];
+    
+    // Call to Get Card Details If the user is Existing One
+    [self getUserDetailsForPayment];
     
 }
 
@@ -51,22 +59,31 @@
 - (IBAction)PayAmountPressed:(UIButton *)sender {
 
     
-    NSString * urlString = @"https://sandbox-api.paysimple.com/v4/customer/321440/defaultcreditcard";
-    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
-    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-    [manager setResponseSerializer:[AFJSONResponseSerializer serializer]];
-   [manager GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask *  task, id   responseObject) {
-       
-       NSLog(@"%@",responseObject);
-       [self GetIDForThePaymentInfoWithObjectAndCallForPaymentWithDict:responseObject];
-   } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
-      
-       NSLog(@"%@",error.description);
-   }];
-    
-    [self performSegueWithIdentifier:@"PayWithCardToThankyou" sender:self];
     
     
+    if (_isNewCustomer) {
+    
+        CreditCardDetails * newCardDetails = [CreditCardDetails CardDetailsWithDictionary:nil];
+        
+        [GSNetworkManager createCreditCardDetails:newCardDetails success:^(NSURLSessionDataTask *operation, id responseObject) {
+            
+            self.OriginId = [responseObject valueForKey:@"Id"];
+            
+            [self payTheAmountToThePaySimple];
+            
+        } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+            
+        }];
+        
+    }
+        else
+        {
+        
+        
+            [self payTheAmountToThePaySimple];
+        
+        }
+
     
 
 
@@ -87,41 +104,43 @@
     return YES;
 
 }
+
+// Gey Card Detaails
 -(void)getUserDetailsForPayment
 {
-
-
- 
-
-   
-}
--(void)GetIDForThePaymentInfoWithObjectAndCallForPaymentWithDict:(NSDictionary *) dic
+if(!_isNewCustomer)
 {
-
-    
-    NSString * urlString = @"https://sandbox-api.paysimple.com/v4/payment";
-    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
-    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-    [manager setResponseSerializer:[AFJSONResponseSerializer serializer]];
-    
-//    NSMutableDictionary * parameters = [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"517918",@"AccountId",
-//        @"30",@"Amount",
-//        @"false","IsDebit" ,
-//        @"123AB",@"InvoiceNumber",
-//        @"77652",@"PurchaseOrderNumber" ,
-//        @"AB999",@"OrderId",
-//        @"A one time payment for a new customer",@"Description",
-//        @"999" ,"CVV" ,
-//       @"MOTO", @"PaymentSubType",nil];
-    
-    [manager POST:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id   responseObject) {
+    [GSNetworkManager GetUserDetailsWithUserID:self.OriginId success:^(NSURLSessionDataTask *operation, id responseObject) {
         
-        NSLog(@"%@",responseObject);
+        // Update the textfeilds to show user details - pending
         
-    } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
+        
+    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         
     }];
     
+
+}
+
+
+
+   
+}
+
+// Final Payment Call With user id and Amount
+-(void)payTheAmountToThePaySimple
+{
+
+
+
+    [GSNetworkManager createPaymentWithAccountId:self.OriginId andAmount:@"150$" success:^(NSURLSessionDataTask *operation, id responseObject) {
+        
+        [self performSegueWithIdentifier:@"PayWithCardToThankyou" sender:self];
+    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+        
+    }];
+    
+
 
 }
 

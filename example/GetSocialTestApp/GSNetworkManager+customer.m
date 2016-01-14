@@ -20,5 +20,11 @@
 {
     return [[self sharedManager] GET:@"/v4/customer" parameters:nil progress:nil success:success failure:failure];
 }
++ (NSURLSessionDataTask *)GetCustomerWithName:(NSString *) name  success:(successCallback)success failure:(failureCallback)failure
+{
 
+
+return [[self sharedManager] GET:[NSString stringWithFormat:@"/v4/globalSearch?Query=%@",name] parameters:nil progress:nil success:success failure:failure];
+
+}
 @end

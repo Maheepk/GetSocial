@@ -14,5 +14,5 @@
 
 + (NSURLSessionDataTask *)createCustomer:(Customer *)customer  success:(successCallback)success failure:(failureCallback)failure;
 + (NSURLSessionDataTask *)getAllCustomersWithSuccess:(successCallback)success failure:(failureCallback)failure;
-
++ (NSURLSessionDataTask *)GetCustomerWithName:(NSString *) name  success:(successCallback)success failure:(failureCallback)failure;
 @end

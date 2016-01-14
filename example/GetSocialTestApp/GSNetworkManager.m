@@ -8,13 +8,13 @@
 
 #import "GSNetworkManager.h"
 //#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
-
+#import <CommonCrypto/CommonHMAC.h>
 //#ifdef DEBUG
 
 NSString *const TABaseURL = @"https://sandbox-app.paysimple.com/";
 NSString *const username = @"sbx-area1holdings";
 NSString *const password = @"MY4f5CioHVnW";
-
+NSString *const APIKey = @"XQyqG5TdzWwG2RHrQsyGRgtL6CLnga0O2HDNodCxXgqCdrk2GAtgwPNTZUu6g5hFpY4wFGB1e6aqJnENvgV1DnbA4rGYD6WkoC7hnA0JnNKOHcrj13gjph4M2kLRKkr0";
 //#else
 ////to be changed to production in future
 //NSString *const TABaseURL = @"https://api.nudgespot.com/201507";
@@ -35,9 +35,14 @@ NSString *const password = @"MY4f5CioHVnW";
     
     if (self)
     {
+        
+        NSString *authValue = [self creatingSignatureForTheAPI];
         self.requestSerializer = [AFJSONRequestSerializer serializer];
-//        self.responseSerializer = [AFJSONResponseSerializer serializer];
+        self.responseSerializer = [AFJSONResponseSerializer serializer];
          self.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+        NSLog(@"%@",authValue);
+        
+        [self.requestSerializer setValue:authValue forHTTPHeaderField:@"Authorization"];
         [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
         [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [self.requestSerializer setValue: @"application/json" forHTTPHeaderField:@"Accept"];
@@ -58,6 +63,52 @@ NSString *const password = @"MY4f5CioHVnW";
     return _sharedManager;
 }
 
+
+-(NSString *) creatingSignatureForTheAPI
+{
+    typedef double NSTimeInterval;
+    NSTimeInterval timeStamp1 = [[NSDate date] timeIntervalSince1970];
+    // NSTimeInterval is defined as double
+    double acd = (double)timeStamp1;
+    
+    NSDateFormatter *dateFormatter;
+    dateFormatter = [[NSDateFormatter alloc] init];
+    
+    //@"yyyy-MM-dd'T'HH:mm:ss'Z'" - doesn't work
+    //@"yyyy-MM-dd'T'HH:mm:ssZZZ" - doesn't work
+    //@"yyyy-MM-dd'T'HH:mm:sss" - doesn't work
+    
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSSSSS'Z'"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+    
+    NSString * tS = [dateFormatter stringFromDate:[NSDate date]];
+    
+    NSNumber *timeStampObj = [NSNumber numberWithDouble: acd];
+   // NSString * timeStamp =  [NSString stringWithFormat:@"%f",acd];
+    NSLog(@"%@",[timeStampObj stringValue]);
+    
+    const char *cKey  = [APIKey cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cData = [tS cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
+    
+    CCHmac (kCCHmacAlgSHA256, cKey, strlen(cKey), cData, strlen(cData), cHMAC);
+    
+    NSMutableString *hmac = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
+    
+    for (int i = 0; i < CC_SHA256_DIGEST_LENGTH; i++) {
+        [hmac appendFormat:@"%02x", cHMAC[i]];
+    }
+    
+    NSString *authStr = [NSString stringWithFormat:@"%@", hmac];
+
+    NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *authValue = [NSString stringWithFormat:@"PSSERVER accessid=%@;timestamp=%@;signature=%@",APIKey,tS, [authData base64EncodedStringWithOptions:0]];
+        NSLog(@"%@   \n  %@",authStr,authValue);
+    return authValue;
+
+
+}
 //#pragma mark - Load
 //+ (void)load
 //{
