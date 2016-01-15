@@ -11,9 +11,9 @@
 #import <CommonCrypto/CommonHMAC.h>
 //#ifdef DEBUG
 
-NSString *const TABaseURL = @"https://sandbox-app.paysimple.com/";
+NSString *const TABaseURL = @"https://sandbox‐api.paysimple.com";
 NSString *const username = @"sbx-area1holdings";
-NSString *const password = @"MY4f5CioHVnW";
+NSString *const password = @"8405thAve";
 NSString *const APIKey = @"XQyqG5TdzWwG2RHrQsyGRgtL6CLnga0O2HDNodCxXgqCdrk2GAtgwPNTZUu6g5hFpY4wFGB1e6aqJnENvgV1DnbA4rGYD6WkoC7hnA0JnNKOHcrj13gjph4M2kLRKkr0";
 //#else
 ////to be changed to production in future
@@ -39,13 +39,15 @@ NSString *const APIKey = @"XQyqG5TdzWwG2RHrQsyGRgtL6CLnga0O2HDNodCxXgqCdrk2GAtgw
         NSString *authValue = [self creatingSignatureForTheAPI];
         self.requestSerializer = [AFJSONRequestSerializer serializer];
         self.responseSerializer = [AFJSONResponseSerializer serializer];
-         self.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+       //  self.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
         NSLog(@"%@",authValue);
         
-        [self.requestSerializer setValue:authValue forHTTPHeaderField:@"Authorization"];
-        [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
+        
+       //  [self.requestSerializer setAuthorizationHeaderFieldWithUsername:username password:password];
         [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         [self.requestSerializer setValue: @"application/json" forHTTPHeaderField:@"Accept"];
+       [self.requestSerializer setValue:authValue forHTTPHeaderField:@"Authorization"];
+    
     }
     
     return self;
@@ -87,8 +89,8 @@ NSString *const APIKey = @"XQyqG5TdzWwG2RHrQsyGRgtL6CLnga0O2HDNodCxXgqCdrk2GAtgw
    // NSString * timeStamp =  [NSString stringWithFormat:@"%f",acd];
     NSLog(@"%@",[timeStampObj stringValue]);
     
-    const char *cKey  = [APIKey cStringUsingEncoding:NSUTF8StringEncoding];
-    const char *cData = [tS cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cKey  = [tS cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cData = [APIKey cStringUsingEncoding:NSUTF8StringEncoding];
     
     unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
     
@@ -103,8 +105,8 @@ NSString *const APIKey = @"XQyqG5TdzWwG2RHrQsyGRgtL6CLnga0O2HDNodCxXgqCdrk2GAtgw
     NSString *authStr = [NSString stringWithFormat:@"%@", hmac];
 
     NSData *authData = [authStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *authValue = [NSString stringWithFormat:@"PSSERVER accessid=%@;timestamp=%@;signature=%@",APIKey,tS, [authData base64EncodedStringWithOptions:0]];
-        NSLog(@"%@   \n  %@",authStr,authValue);
+    NSString *authValue = [NSString stringWithFormat:@"PSSERVERaccessid=%@;timestamp=%@;signature=%@",APIKey,tS, [authData base64EncodedStringWithOptions:0]];
+        NSLog(@"%@",authValue);
     return authValue;
 
 

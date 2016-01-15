@@ -26,7 +26,7 @@
     [self.tfCardNumber becomeFirstResponder];
     
     [self getUserDetailsForPayment];
-   
+    self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor] ;
     self.navigationController.navigationBar.barTintColor = [UIColor blueColor] ;
 
@@ -141,7 +141,7 @@ if(!_isNewCustomer)
     }];
     
 
-
+[self performSegueWithIdentifier:@"PayWithCardToThankyou" sender:self];
 }
 
 

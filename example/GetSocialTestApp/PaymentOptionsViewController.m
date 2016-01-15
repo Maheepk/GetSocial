@@ -26,7 +26,7 @@
     self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor] ;
     self.navigationController.navigationBar.barTintColor = [UIColor blueColor];
     self.navigationController.navigationBar.translucent = NO;
-
+    self.navigationController.navigationBarHidden = NO;
     // Call The Find the user from Paysimple using its First and Last name 
     [self PostCustomerIdWithFirstName:self.first_name andLastname:self.last_name];
     self.isNewCustomer = NO;

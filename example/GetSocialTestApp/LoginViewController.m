@@ -25,10 +25,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-
+    self.navigationController.navigationBarHidden = YES;
     _loginModel = [[LoginModel alloc] init];
     //[self PostCustomerIdWithFirstName:@"hello" andLastname:@"hello"];
-
+ 
+    [GSNetworkManager getAllCustomersWithSuccess:^(NSURLSessionDataTask *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+        
+    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+        
+        NSLog(@"%@",error);
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,8 +55,8 @@
     if ([segue.identifier isEqualToString:@"logintoPayment"]) {
         
         PaymentOptionsViewController *vc = segue.destinationViewController;
-        vc.first_name = self.first_name;
-        vc.last_name = self.last_name;
+        vc.first_name = _first_name;
+        vc.last_name = _last_name;
         
     }
 
