@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F49B265A6307C96928F0803 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A62C289467F0DE2EE39ADD79 /* libPods.a */; };
+		0F49B265A6307C96928F0803 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A62C289467F0DE2EE39ADD79 /* libPods.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		990BC5B01AF24E07003A0B96 /* UIBAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 990BC5AD1AF24E07003A0B96 /* UIBAlertView.m */; };
 		990CFDE61BAA173E008872CA /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990CFD731BA9C350008872CA /* Accelerate.framework */; };
 		990CFDE71BAA173E008872CA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990CFD711BA9C31C008872CA /* Social.framework */; };
@@ -20,11 +20,6 @@
 		990CFDEE1BAA173E008872CA /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9908FAA91A9B4C7800F39657 /* AVFoundation.framework */; };
 		990CFDF01BAA173E008872CA /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 990BC5B71AF265D6003A0B96 /* AdSupport.framework */; };
 		990CFDF21BAA173E008872CA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995D99A617EB064500F65204 /* UIKit.framework */; };
-		990CFDF41BAA173E008872CA /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A02EC6190FECAD00324CC7 /* libresolv.dylib */; };
-		990CFDF51BAA173E008872CA /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A02EC4190FECA600324CC7 /* libiconv.dylib */; };
-		990CFDF61BAA173E008872CA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 46A02EBD190FEC9600324CC7 /* libxml2.dylib */; };
-		990CFDF71BAA173E008872CA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F429AFF618CE57690005AEC8 /* libz.dylib */; };
-		990CFDF81BAA173E008872CA /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AD6CFE18BF313400B1F342 /* libsqlite3.dylib */; };
 		990CFDF91BAA173E008872CA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BF2FC118129DCC00B9A6B5 /* SystemConfiguration.framework */; };
 		990CFDFC1BAA173E008872CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995D99A217EB064500F65204 /* Foundation.framework */; };
 		991347B51AF240740044C2AD /* CustomSmartInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 991347B21AF240740044C2AD /* CustomSmartInviteViewController.m */; };
@@ -88,9 +83,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		46A02EBD190FEC9600324CC7 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		46A02EC4190FECA600324CC7 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
-		46A02EC6190FECAD00324CC7 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		9908FAA91A9B4C7800F39657 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9908FAAB1A9B4CA100F39657 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
 		9908FAAE1A9B4D3900F39657 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -196,8 +188,6 @@
 		E26247421C45546100FCA747 /* Customer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customer.m; sourceTree = "<group>"; };
 		E26247471C456FAB00FCA747 /* ResponseDataProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseDataProtocol.h; sourceTree = "<group>"; };
 		E26247481C45731900FCA747 /* Thankyou.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thankyou.png; sourceTree = "<group>"; };
-		F429AFF618CE57690005AEC8 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		F4AD6CFE18BF313400B1F342 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		F864BD037A9CC0A89D398155 /* Pods.master.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.master.xcconfig; path = "Pods/Target Support Files/Pods/Pods.master.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,13 +222,8 @@
 				E26247231C453E2B00FCA747 /* Bolts.framework in Frameworks */,
 				998B74BD1BBA8C7000325DAF /* GetSocial.framework in Frameworks */,
 				E26247281C453E2B00FCA747 /* ParseUI.framework in Frameworks */,
-				990CFDF41BAA173E008872CA /* libresolv.dylib in Frameworks */,
-				990CFDF51BAA173E008872CA /* libiconv.dylib in Frameworks */,
 				E26247241C453E2B00FCA747 /* Parse.framework in Frameworks */,
-				990CFDF61BAA173E008872CA /* libxml2.dylib in Frameworks */,
-				990CFDF71BAA173E008872CA /* libz.dylib in Frameworks */,
 				E26247261C453E2B00FCA747 /* ParseFacebookUtilsV4.framework in Frameworks */,
-				990CFDF81BAA173E008872CA /* libsqlite3.dylib in Frameworks */,
 				990CFDFC1BAA173E008872CA /* Foundation.framework in Frameworks */,
 				0F49B265A6307C96928F0803 /* libPods.a in Frameworks */,
 			);
@@ -330,11 +315,6 @@
 				9908FAB21A9B4D7300F39657 /* CoreMedia.framework */,
 				990CFD6D1BA9C2CF008872CA /* CoreTelephony.framework */,
 				995D99A217EB064500F65204 /* Foundation.framework */,
-				46A02EC4190FECA600324CC7 /* libiconv.dylib */,
-				46A02EC6190FECAD00324CC7 /* libresolv.dylib */,
-				F4AD6CFE18BF313400B1F342 /* libsqlite3.dylib */,
-				46A02EBD190FEC9600324CC7 /* libxml2.dylib */,
-				F429AFF618CE57690005AEC8 /* libz.dylib */,
 				990CFD6F1BA9C2F6008872CA /* MessageUI.framework */,
 				99BF2FBC18129DC600B9A6B5 /* MobileCoreServices.framework */,
 				99AD885C18098AC000F1F346 /* QuartzCore.framework */,
@@ -731,7 +711,7 @@
 		99404754196F09FD00F1B441 /* master */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -744,8 +724,13 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Austin Grissom (DT692DLLZ2)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Austin Grissom (DT692DLLZ2)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/sucharuhasija/Downloads/wirelessapp/example/Pods/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -758,7 +743,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "$(ARCHS_STANDARD)";
@@ -771,7 +756,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GetSocialTestApp/GetSocialTestApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Austin Grissom (DT692DLLZ2)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Austin Grissom (DT692DLLZ2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -787,7 +773,8 @@
 				GCC_PREFIX_HEADER = "GetSocialTestApp/testapp-Prefix.pch";
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				INFOPLIST_FILE = "GetSocialTestApp/testapp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = "/Users/sucharuhasija/Downloads/wirelessapp/example/Pods/**";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lstdc++",

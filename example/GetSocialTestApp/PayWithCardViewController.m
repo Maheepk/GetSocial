@@ -35,7 +35,7 @@
     
     // Call to Get Card Details If the user is Existing One
     [self getUserDetailsForPayment];
-    
+       [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyBoard)]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,13 +88,40 @@
 
 
 }
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
 
+    float height = 0;
+    if(textField == self.tfCadHolder)
+    {
+        height = 30;
+    
+    
+    }
+    else if (textField == self.tfValidUpto || textField == self.tfCVC)
+    {
+    
+        height = 70;
+        
+    }
+
+    [UIView animateWithDuration:0.02 animations:^{
+        
+        [self.view setFrame: CGRectMake(0,-height, self.view.frame.size.width,  self.view.frame.size.height)];
+        
+    }];
+    
+}
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
 
     [textField resignFirstResponder];
 
-
+    [UIView animateWithDuration:0.02 animations:^{
+        
+        [self.view setFrame: CGRectMake(0,0, self.view.frame.size.width,  self.view.frame.size.height)];
+        
+    }];
 }
 -(BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
@@ -144,7 +171,21 @@ if(!_isNewCustomer)
 [self performSegueWithIdentifier:@"PayWithCardToThankyou" sender:self];
 }
 
-
+-(void)hideKeyBoard
+{
+    
+    [self.tfCadHolder resignFirstResponder];
+    [self.tfValidUpto resignFirstResponder];
+    [self.tfCardNumber resignFirstResponder];
+    [self.tfCVC resignFirstResponder];
+    [UIView animateWithDuration:0.02 animations:^{
+        
+        [self.view setFrame: CGRectMake(0,60, self.view.frame.size.width,  self.view.frame.size.height)];
+        
+    }];
+    
+    
+}
 
 
 @end

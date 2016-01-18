@@ -14,7 +14,7 @@
 NSString *const TABaseURL = @"https://sandbox‐api.paysimple.com";
 NSString *const username = @"sbx-area1holdings";
 NSString *const password = @"8405thAve";
-NSString *const APIKey = @"XQyqG5TdzWwG2RHrQsyGRgtL6CLnga0O2HDNodCxXgqCdrk2GAtgwPNTZUu6g5hFpY4wFGB1e6aqJnENvgV1DnbA4rGYD6WkoC7hnA0JnNKOHcrj13gjph4M2kLRKkr0";
+NSString *const APIKey = @"tkH3vgJX60Lf0n8DSwy8SZDlIirAMZADPUa7MivWgfkqAXoYJkBrkDlrQ8rAaTOrW3hrRMICvwXvlItufOcy1k1INZGNpMntmrC6Q7GP7JRoDmYSyRHpWxJbxLA3yoj0";
 //#else
 ////to be changed to production in future
 //NSString *const TABaseURL = @"https://api.nudgespot.com/201507";
